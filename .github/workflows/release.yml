@@ -1,0 +1,45 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_title:
+        description: Title for the GitHub release
+        required: true
+        type: string
+
+concurrency:
+  group: release-templates
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  version:
+    name: release:version-and-tag
+    permissions:
+      contents: write
+      pull-requests: read
+    uses: ./.github/workflows/release-common.yml
+    with:
+      release_title: ${{ inputs.release_title }}
+
+  all-checks-passed:
+    name: Release / All Checks Passed
+    runs-on: ['self-hosted', 'ubuntu-slim']
+    permissions: {}
+    needs:
+      - version
+    if: always()
+    steps:
+      - name: Check all jobs passed
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ "${{ needs.version.result }}" != "success" && "${{ needs.version.result }}" != "skipped" ]]; then
+            echo "One or more required jobs did not succeed."
+            exit 1
+          fi

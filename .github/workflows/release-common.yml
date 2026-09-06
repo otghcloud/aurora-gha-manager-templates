@@ -1,0 +1,178 @@
+name: Release Common
+
+on:
+  workflow_call:
+    inputs:
+      release_title:
+        description: Title for the GitHub release
+        required: true
+        type: string
+    outputs:
+      skip:
+        value: ${{ jobs.bump.outputs.skip }}
+      version:
+        value: ${{ jobs.bump.outputs.version }}
+      release_sha:
+        value: ${{ jobs.bump.outputs.release_sha }}
+      pr_title:
+        value: ${{ jobs.bump.outputs.pr_title }}
+      released:
+        value: ${{ jobs.release.outputs.released }}
+
+permissions:
+  contents: read
+
+jobs:
+  bump:
+    name: Release / Bump
+    runs-on: ['self-hosted', 'ubuntu-slim']
+    outputs:
+      skip: ${{ steps.skip_check.outputs.skip }}
+      version: ${{ steps.next_version.outputs.version }}
+      release_sha: ${{ steps.capture_sha.outputs.sha }}
+      pr_title: ${{ fromJson(steps.pr_info.outputs.result).title }}
+      pr_body: ${{ fromJson(steps.pr_info.outputs.result).body }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          submodules: false
+
+      - name: Check for skip marker
+        id: skip_check
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+          if echo "${COMMIT_MESSAGE}" | grep -q '\[skip-release\]'; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Skipping workflow due to [skip-release] marker"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up Git
+        if: steps.skip_check.outputs.skip == 'false'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Get PR information
+        id: pr_info
+        if: steps.skip_check.outputs.skip == 'false'
+        uses: actions/github-script@v9
+        with:
+          script: |
+            if (context.eventName === 'workflow_dispatch') {
+              return {
+                title: 'Manual release',
+                body: 'Manual release triggered from workflow_dispatch.',
+                number: null,
+                found: false,
+              };
+            }
+
+            const pr = context.payload.pull_request;
+            return {
+              title: pr.title,
+              body: pr.body || 'No description provided.',
+              number: pr.number,
+              found: true,
+            };
+
+      - name: Fetch latest main
+        if: steps.skip_check.outputs.skip == 'false' && github.event_name != 'workflow_dispatch'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main --tags
+
+      - name: Calculate next version
+        id: next_version
+        if: steps.skip_check.outputs.skip == 'false'
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # The catalog is generated upstream and already carries the date-based version to release.
+          VERSION="$(jq -r '.image_builder_version // ""' templates.json)"
+
+          if ! echo "${VERSION}" | grep -Eq '^[0-9]{4}\.[0-9]{2}\.[0-9]{2}\.[0-9]+$'; then
+            echo "templates.json image_builder_version '${VERSION}' is not a YYYY.MM.DD.N version." >&2
+            exit 1
+          fi
+
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Capture release SHA
+        id: capture_sha
+        if: steps.skip_check.outputs.skip == 'false'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          elif [[ -n "${{ github.event.pull_request.merge_commit_sha }}" ]]; then
+            echo "sha=${{ github.event.pull_request.merge_commit_sha }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          fi
+
+  release:
+    name: Release
+    needs:
+      - bump
+    if: needs.bump.outputs.skip == 'false'
+    runs-on: ['self-hosted', 'ubuntu-slim']
+    permissions:
+      contents: write
+    outputs:
+      released: ${{ steps.push_tag.outputs.released }}
+    steps:
+      - name: Checkout release SHA
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ needs.bump.outputs.release_sha }}
+          fetch-depth: 0
+          submodules: false
+
+      - name: Set up Git
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Create and push version tag
+        id: push_tag
+        env:
+          NEW_VERSION: ${{ needs.bump.outputs.version }}
+          PR_TITLE: ${{ needs.bump.outputs.pr_title }}
+          RELEASE_TITLE: ${{ inputs.release_title }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          TAG="${NEW_VERSION}"
+
+          if git rev-parse -q --verify "refs/tags/${TAG}" >/dev/null; then
+            echo "Tag ${TAG} already exists."
+            echo "released=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          git tag -a "${TAG}" -m "${TAG} - ${RELEASE_TITLE}"
+          git push origin "${TAG}"
+          echo "released=true" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub release
+        if: steps.push_tag.outputs.released == 'true'
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ needs.bump.outputs.version }}
+          name: ${{ inputs.release_title }}
+          generate_release_notes: true
