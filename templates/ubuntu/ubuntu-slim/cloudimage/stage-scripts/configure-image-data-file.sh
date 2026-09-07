@@ -11,5 +11,5 @@ export IMAGE_OS=ubuntu24-slim
 export IMAGEDATA_NAME=ubuntu:24.04-slim
 
 echo "==> Running configure-image-data-file.sh"
-sudo -E bash /imagegeneration/build/configure-image-data-file.sh
+sudo -E env HOME=/root bash /imagegeneration/build/configure-image-data-file.sh
 echo "==> Done"

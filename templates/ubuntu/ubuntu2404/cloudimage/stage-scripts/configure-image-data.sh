@@ -9,5 +9,5 @@ export IMAGE_VERSION=dev
 export IMAGEDATA_FILE=/imagegeneration/imagedata.json
 
 echo "==> Running configure-image-data.sh"
-sudo -E bash /imagegeneration/toolsets/configure-image-data.sh
+sudo -E env HOME=/root bash /imagegeneration/toolsets/configure-image-data.sh
 echo "==> Done"

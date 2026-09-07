@@ -8,5 +8,5 @@ export HELPER_SCRIPTS=/imagegeneration/helpers
 export INSTALLER_SCRIPT_FOLDER=/imagegeneration/toolsets
 
 echo "==> Running install-apache.sh"
-sudo -E bash /imagegeneration/toolsets/install-apache.sh
+sudo -E env HOME=/root bash /imagegeneration/toolsets/install-apache.sh
 echo "==> Done"

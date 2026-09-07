@@ -8,7 +8,7 @@ export HELPER_SCRIPTS=/imagegeneration/helpers
 export INSTALLER_SCRIPT_FOLDER=/imagegeneration/toolsets
 
 echo "==> Running Install-Toolset.ps1"
-sudo -E pwsh -File /imagegeneration/toolsets/Install-Toolset.ps1
+sudo -E env HOME=/root pwsh -File /imagegeneration/toolsets/Install-Toolset.ps1
 echo "==> Running Configure-Toolset.ps1"
-sudo -E pwsh -File /imagegeneration/toolsets/Configure-Toolset.ps1
+sudo -E env HOME=/root pwsh -File /imagegeneration/toolsets/Configure-Toolset.ps1
 echo "==> Done"

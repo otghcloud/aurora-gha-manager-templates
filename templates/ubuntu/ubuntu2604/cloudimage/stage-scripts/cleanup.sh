@@ -6,5 +6,5 @@ export NEEDRESTART_MODE=l
 export NEEDRESTART_SUSPEND=1
 
 echo "==> Running cleanup.sh"
-sudo -E bash /imagegeneration/toolsets/cleanup.sh
+sudo -E env HOME=/root bash /imagegeneration/toolsets/cleanup.sh
 echo "==> Done"

@@ -10,8 +10,8 @@ export HELPER_SCRIPTS=/imagegeneration/helpers
 export INSTALLER_SCRIPT_FOLDER=/imagegeneration/toolsets
 
 echo "==> Running install-docker.sh"
-sudo -E bash /imagegeneration/toolsets/install-docker.sh
-sudo -E bash <<'GHA_STAGE_EOF'
+sudo -E env HOME=/root bash /imagegeneration/toolsets/install-docker.sh
+sudo -E env HOME=/root bash <<'GHA_STAGE_EOF'
 set -euo pipefail
 usermod -aG docker "$SSH_USERNAME"
 GHA_STAGE_EOF

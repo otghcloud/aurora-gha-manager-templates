@@ -5,7 +5,7 @@ export DEBIAN_FRONTEND=noninteractive
 export NEEDRESTART_MODE=l
 export NEEDRESTART_SUSPEND=1
 
-sudo -E bash <<'GHA_STAGE_EOF'
+sudo -E env HOME=/root bash <<'GHA_STAGE_EOF'
 set -euo pipefail
 touch /etc/waagent.conf
 grep -q ResourceDisk.Format /etc/waagent.conf || echo 'ResourceDisk.Format=n' >> /etc/waagent.conf

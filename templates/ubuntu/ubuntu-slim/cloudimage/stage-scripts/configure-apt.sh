@@ -11,5 +11,5 @@ export IMAGE_OS=ubuntu24-slim
 export IMAGEDATA_NAME=ubuntu:24.04-slim
 
 echo "==> Running configure-apt.sh"
-sudo -E bash /imagegeneration/build/configure-apt.sh
+sudo -E env HOME=/root bash /imagegeneration/build/configure-apt.sh
 echo "==> Done"

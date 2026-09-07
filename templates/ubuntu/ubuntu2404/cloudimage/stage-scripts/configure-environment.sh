@@ -9,5 +9,5 @@ export IMAGE_OS=ubuntu24
 export HELPER_SCRIPTS=/imagegeneration/helpers
 
 echo "==> Running configure-environment.sh"
-sudo -E bash /imagegeneration/toolsets/configure-environment.sh
+sudo -E env HOME=/root bash /imagegeneration/toolsets/configure-environment.sh
 echo "==> Done"
