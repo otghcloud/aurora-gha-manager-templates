@@ -8,5 +8,5 @@ export HELPER_SCRIPTS=/imagegeneration/helpers
 export INSTALLER_SCRIPT_FOLDER=/imagegeneration/toolsets
 
 echo "==> Running install-gcc-compilers.sh"
-sudo -E bash /imagegeneration/toolsets/install-gcc-compilers.sh
+sudo -E env HOME=/root bash /imagegeneration/toolsets/install-gcc-compilers.sh
 echo "==> Done"

@@ -6,5 +6,5 @@ export NEEDRESTART_MODE=l
 export NEEDRESTART_SUSPEND=1
 
 echo "==> Running configure-limits.sh"
-sudo -E bash /imagegeneration/toolsets/configure-limits.sh
+sudo -E env HOME=/root bash /imagegeneration/toolsets/configure-limits.sh
 echo "==> Done"

@@ -11,5 +11,5 @@ export IMAGE_OS=ubuntu24-slim
 export IMAGEDATA_NAME=ubuntu:24.04-slim
 
 echo "==> Running install-actions-cache.sh"
-sudo -E bash /imagegeneration/build/install-actions-cache.sh
+sudo -E env HOME=/root bash /imagegeneration/build/install-actions-cache.sh
 echo "==> Done"

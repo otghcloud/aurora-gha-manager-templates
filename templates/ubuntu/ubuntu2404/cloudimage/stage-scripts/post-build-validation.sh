@@ -7,5 +7,5 @@ export NEEDRESTART_SUSPEND=1
 export HELPER_SCRIPTS=/imagegeneration/helpers
 
 echo "==> Running post-build-validation.sh"
-sudo -E bash /imagegeneration/toolsets/post-build-validation.sh
+sudo -E env HOME=/root bash /imagegeneration/toolsets/post-build-validation.sh
 echo "==> Done"

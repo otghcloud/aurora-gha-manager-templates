@@ -7,9 +7,9 @@ export NEEDRESTART_SUSPEND=1
 export HELPER_SCRIPTS=/imagegeneration/helpers
 
 echo "==> Running install-ms-repos.sh"
-sudo -E bash /imagegeneration/toolsets/install-ms-repos.sh
+sudo -E env HOME=/root bash /imagegeneration/toolsets/install-ms-repos.sh
 echo "==> Running configure-apt-sources.sh"
-sudo -E bash /imagegeneration/toolsets/configure-apt-sources.sh
+sudo -E env HOME=/root bash /imagegeneration/toolsets/configure-apt-sources.sh
 echo "==> Running configure-apt.sh"
-sudo -E bash /imagegeneration/toolsets/configure-apt.sh
+sudo -E env HOME=/root bash /imagegeneration/toolsets/configure-apt.sh
 echo "==> Done"

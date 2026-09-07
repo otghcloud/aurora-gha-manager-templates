@@ -7,5 +7,5 @@ export NEEDRESTART_SUSPEND=1
 export HELPER_SCRIPTS=/imagegeneration/helpers
 
 echo "==> Running configure-snap.sh"
-sudo -E bash /imagegeneration/toolsets/configure-snap.sh
+sudo -E env HOME=/root bash /imagegeneration/toolsets/configure-snap.sh
 echo "==> Done"

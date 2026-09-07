@@ -9,5 +9,5 @@ export INSTALLER_SCRIPT_FOLDER=/imagegeneration/toolsets
 export IMAGE_FOLDER=/imagegeneration
 
 echo "==> Running configure-system.sh"
-sudo -E bash /imagegeneration/toolsets/configure-system.sh
+sudo -E env HOME=/root bash /imagegeneration/toolsets/configure-system.sh
 echo "==> Done"

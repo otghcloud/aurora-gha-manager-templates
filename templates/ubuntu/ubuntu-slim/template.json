@@ -4,8 +4,8 @@
   "name": "Ubuntu Slim",
   "description": "Proxmox compatible \"ubuntu-slim\" GitHub Actions runner image",
   "metadata": {
-    "build_timestamp": "2026-09-07T18:21:37Z",
-    "version": "2026.09.07.1",
+    "build_timestamp": "2026-09-07T21:22:22Z",
+    "version": "2026.09.07.2",
     "upstream_commit": "66571c4a846edd75ce0ee259884ea5989ccbb7de"
   },
   "platform": {

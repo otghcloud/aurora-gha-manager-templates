@@ -8,5 +8,5 @@ export HELPER_SCRIPTS=/imagegeneration/helpers
 export INSTALLER_SCRIPT_FOLDER=/imagegeneration/toolsets
 
 echo "==> Running install-apt-vital.sh"
-sudo -E bash /imagegeneration/toolsets/install-apt-vital.sh
+sudo -E env HOME=/root bash /imagegeneration/toolsets/install-apt-vital.sh
 echo "==> Done"

@@ -8,5 +8,5 @@ export HELPER_SCRIPTS=/imagegeneration/helpers
 export INSTALLER_SCRIPT_FOLDER=/imagegeneration/toolsets
 
 echo "==> Running install-ruby.sh"
-sudo -E bash /imagegeneration/toolsets/install-ruby.sh
+sudo -E env HOME=/root bash /imagegeneration/toolsets/install-ruby.sh
 echo "==> Done"

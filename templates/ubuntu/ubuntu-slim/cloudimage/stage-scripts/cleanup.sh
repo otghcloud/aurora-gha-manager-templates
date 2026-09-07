@@ -11,5 +11,5 @@ export IMAGE_OS=ubuntu24-slim
 export IMAGEDATA_NAME=ubuntu:24.04-slim
 
 echo "==> Running cleanup.sh"
-sudo -E bash /imagegeneration/helpers/cleanup.sh
+sudo -E env HOME=/root bash /imagegeneration/helpers/cleanup.sh
 echo "==> Done"

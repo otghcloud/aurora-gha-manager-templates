@@ -6,5 +6,5 @@ export NEEDRESTART_MODE=l
 export NEEDRESTART_SUSPEND=1
 
 echo "==> Running list-dpkg.sh"
-sudo -E bash /imagegeneration/toolsets/list-dpkg.sh
+sudo -E env HOME=/root bash /imagegeneration/toolsets/list-dpkg.sh
 echo "==> Done"
