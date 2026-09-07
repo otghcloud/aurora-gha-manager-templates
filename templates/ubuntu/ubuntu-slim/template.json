@@ -1,0 +1,101 @@
+{
+  "schema_version": 2,
+  "id": "ubuntu-slim",
+  "name": "Ubuntu Slim",
+  "description": "Proxmox compatible \"ubuntu-slim\" GitHub Actions runner image",
+  "metadata": {
+    "build_timestamp": "2026-09-07T18:21:37Z",
+    "version": "2026.09.07.1",
+    "upstream_commit": "66571c4a846edd75ce0ee259884ea5989ccbb7de"
+  },
+  "platform": {
+    "arch": "x64",
+    "type": "linux",
+    "os_family": "ubuntu",
+    "os_version": "24.04"
+  },
+  "default_labels": [
+    "self-hosted",
+    "linux",
+    "x64",
+    "ubuntu-slim"
+  ],
+  "builders": {
+    "cloudimage": {
+      "buildable": true,
+      "disabled_reason": null,
+      "label": "cloudimage",
+      "display_name": "Cloud image",
+      "type": "cloudimage",
+      "path": "templates/ubuntu/ubuntu-slim/cloudimage",
+      "build_manifest": "templates/ubuntu/ubuntu-slim/cloudimage/build.json",
+      "artifact": {
+        "kind": "image_url",
+        "url": "https://otgh-static-assets.s3.otgh.cloud/cloud-images/ubuntu-24.04-server-pmx-cloudimg-amd64.img",
+        "file": null
+      },
+      "provisioner": {
+        "interface_version": 2,
+        "runner_images_directory": "images/ubuntu-slim",
+        "scripts_root_required": true,
+        "installation_media": [
+          {
+            "key": "cloudimage",
+            "required": true
+          }
+        ]
+      },
+      "build_groups": [
+        "configure",
+        "install",
+        "cleanup"
+      ],
+      "build_requirements": {
+        "cpu_cores": 2,
+        "memory_mb": 2048,
+        "disk_gb": 50,
+        "temp_disk_gb": null,
+        "estimated_minutes": 10
+      }
+    },
+    "packer": {
+      "buildable": true,
+      "disabled_reason": null,
+      "label": "packer",
+      "display_name": "Packer",
+      "type": "packer",
+      "path": "templates/ubuntu/ubuntu-slim/packer",
+      "build_manifest": "templates/ubuntu/ubuntu-slim/packer/build.json",
+      "artifact": {
+        "kind": "iso",
+        "url": "https://releases.ubuntu.com/noble/ubuntu-24.04.4-live-server-amd64.iso",
+        "file": "ubuntu-24.04.4-live-server-amd64.iso"
+      },
+      "provisioner": {
+        "interface_version": 2,
+        "runner_images_directory": "images/ubuntu-slim",
+        "scripts_root_required": true,
+        "installation_media": [
+          {
+            "key": "primary_iso",
+            "required": true
+          }
+        ]
+      },
+      "build_groups": [
+        "configure",
+        "install",
+        "cleanup"
+      ],
+      "build_requirements": {
+        "cpu_cores": 2,
+        "memory_mb": 2048,
+        "disk_gb": 50,
+        "temp_disk_gb": null,
+        "estimated_minutes": 25
+      }
+    }
+  },
+  "template_path": "templates/ubuntu/ubuntu-slim",
+  "template_json_path": "templates/ubuntu/ubuntu-slim/template.json"
+}
