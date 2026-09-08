@@ -344,7 +344,10 @@
       "ssh_public_key": "$SSH_PUBLIC_KEY"
     },
     "preamble_exports": {
-      "SSH_USERNAME": "\"$(id -un)\""
+      "SSH_USERNAME": "\"$(id -un)\"",
+      "GH_API_TOKEN": "\"${GH_API_TOKEN:-}\"",
+      "GH_API_MIN_REMAINING": "\"${GH_API_MIN_REMAINING:-10}\"",
+      "GH_API_WAIT_BUFFER_SECONDS": "\"${GH_API_WAIT_BUFFER_SECONDS:-15}\""
     },
     "catalog_environment": {
       "GH_API_TOKEN": "github_api_token",
