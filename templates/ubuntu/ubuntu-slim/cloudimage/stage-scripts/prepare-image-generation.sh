@@ -21,7 +21,7 @@ sudo mkdir -p /etc/systemd/networkd.conf.d
 # matter that Proxmox gave each one a unique MAC. link-layer keys the DUID on the MAC instead.
 printf '[DHCPv4]\nDUIDType=link-layer\n\n[DHCPv6]\nDUIDType=link-layer\n' | sudo tee /etc/systemd/networkd.conf.d/99-gha-dhcp-identity.conf >/dev/null
 
-sudo -E env HOME=/root bash <<'GHA_STAGE_EOF'
+sudo env DEBIAN_FRONTEND="${DEBIAN_FRONTEND:-}" NEEDRESTART_MODE="${NEEDRESTART_MODE:-}" NEEDRESTART_SUSPEND="${NEEDRESTART_SUSPEND:-}" GH_API_TOKEN="${GH_API_TOKEN:-}" GH_API_MIN_REMAINING="${GH_API_MIN_REMAINING:-}" GH_API_WAIT_BUFFER_SECONDS="${GH_API_WAIT_BUFFER_SECONDS:-}" SSH_USERNAME="${SSH_USERNAME:-}" HOME=/root bash <<'GHA_STAGE_EOF'
 set -euo pipefail
 mkdir -p /imagegeneration
 chmod 777 /imagegeneration

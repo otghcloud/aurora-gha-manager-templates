@@ -8,5 +8,5 @@ export HELPER_SCRIPTS=/imagegeneration/helpers
 export INSTALLER_SCRIPT_FOLDER=/imagegeneration/toolsets
 
 echo "==> Running install-postgresql.sh"
-sudo -E env HOME=/root bash /imagegeneration/toolsets/install-postgresql.sh
+sudo env DEBIAN_FRONTEND="${DEBIAN_FRONTEND:-}" NEEDRESTART_MODE="${NEEDRESTART_MODE:-}" NEEDRESTART_SUSPEND="${NEEDRESTART_SUSPEND:-}" GH_API_TOKEN="${GH_API_TOKEN:-}" GH_API_MIN_REMAINING="${GH_API_MIN_REMAINING:-}" GH_API_WAIT_BUFFER_SECONDS="${GH_API_WAIT_BUFFER_SECONDS:-}" SSH_USERNAME="${SSH_USERNAME:-}" HELPER_SCRIPTS="${HELPER_SCRIPTS:-}" INSTALLER_SCRIPT_FOLDER="${INSTALLER_SCRIPT_FOLDER:-}" HOME=/root bash /imagegeneration/toolsets/install-postgresql.sh
 echo "==> Done"

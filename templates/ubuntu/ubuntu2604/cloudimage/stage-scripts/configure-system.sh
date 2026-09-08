@@ -9,5 +9,5 @@ export INSTALLER_SCRIPT_FOLDER=/imagegeneration/toolsets
 export IMAGE_FOLDER=/imagegeneration
 
 echo "==> Running configure-system.sh"
-sudo -E env HOME=/root bash /imagegeneration/toolsets/configure-system.sh
+sudo env DEBIAN_FRONTEND="${DEBIAN_FRONTEND:-}" NEEDRESTART_MODE="${NEEDRESTART_MODE:-}" NEEDRESTART_SUSPEND="${NEEDRESTART_SUSPEND:-}" GH_API_TOKEN="${GH_API_TOKEN:-}" GH_API_MIN_REMAINING="${GH_API_MIN_REMAINING:-}" GH_API_WAIT_BUFFER_SECONDS="${GH_API_WAIT_BUFFER_SECONDS:-}" SSH_USERNAME="${SSH_USERNAME:-}" HELPER_SCRIPT_FOLDER="${HELPER_SCRIPT_FOLDER:-}" INSTALLER_SCRIPT_FOLDER="${INSTALLER_SCRIPT_FOLDER:-}" IMAGE_FOLDER="${IMAGE_FOLDER:-}" HOME=/root bash /imagegeneration/toolsets/configure-system.sh
 echo "==> Done"
