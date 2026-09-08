@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-08T16:42:50Z",
-  "image_builder_version": "2026.09.08.1",
+  "generated_at": "2026-09-08T17:43:27Z",
+  "image_builder_version": "2026.09.08.2",
   "runner_images_commit": "57fdccbc4a47d85e23cc79eaeb63cb8ae0e997b5",
   "templates": [
     {
@@ -10,8 +10,8 @@
       "name": "Ubuntu 24.04",
       "description": "Proxmox compatible Ubuntu 24.04 GitHub Actions runner image",
       "metadata": {
-        "build_timestamp": "2026-09-08T16:42:50Z",
-        "version": "2026.09.08.1",
+        "build_timestamp": "2026-09-08T17:43:26Z",
+        "version": "2026.09.08.2",
         "upstream_commit": "57fdccbc4a47d85e23cc79eaeb63cb8ae0e997b5"
       },
       "platform": {
@@ -112,8 +112,8 @@
       "name": "Ubuntu 26.04",
       "description": "Proxmox compatible Ubuntu 26.04 GitHub Actions runner image",
       "metadata": {
-        "build_timestamp": "2026-09-08T16:42:50Z",
-        "version": "2026.09.08.1",
+        "build_timestamp": "2026-09-08T17:43:26Z",
+        "version": "2026.09.08.2",
         "upstream_commit": "57fdccbc4a47d85e23cc79eaeb63cb8ae0e997b5"
       },
       "platform": {
@@ -213,8 +213,8 @@
       "name": "Ubuntu Slim",
       "description": "Proxmox compatible \"ubuntu-slim\" GitHub Actions runner image",
       "metadata": {
-        "build_timestamp": "2026-09-08T16:42:50Z",
-        "version": "2026.09.08.1",
+        "build_timestamp": "2026-09-08T17:43:26Z",
+        "version": "2026.09.08.2",
         "upstream_commit": "57fdccbc4a47d85e23cc79eaeb63cb8ae0e997b5"
       },
       "platform": {
@@ -314,8 +314,8 @@
       "name": "Windows Server 2022",
       "description": "Proxmox compatible Windows Server 2022 GitHub Actions runner image",
       "metadata": {
-        "build_timestamp": "2026-09-08T16:42:50Z",
-        "version": "2026.09.08.1",
+        "build_timestamp": "2026-09-08T17:43:26Z",
+        "version": "2026.09.08.2",
         "upstream_commit": "57fdccbc4a47d85e23cc79eaeb63cb8ae0e997b5"
       },
       "platform": {
@@ -383,8 +383,8 @@
       "name": "Windows Server 2025",
       "description": "Proxmox compatible Windows Server 2025 GitHub Actions runner image",
       "metadata": {
-        "build_timestamp": "2026-09-08T16:42:50Z",
-        "version": "2026.09.08.1",
+        "build_timestamp": "2026-09-08T17:43:26Z",
+        "version": "2026.09.08.2",
         "upstream_commit": "57fdccbc4a47d85e23cc79eaeb63cb8ae0e997b5"
       },
       "platform": {

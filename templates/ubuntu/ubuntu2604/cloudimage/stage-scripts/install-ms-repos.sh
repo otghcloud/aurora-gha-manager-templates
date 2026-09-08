@@ -7,9 +7,9 @@ export NEEDRESTART_SUSPEND=1
 export HELPER_SCRIPTS=/imagegeneration/helpers
 
 echo "==> Running install-ms-repos.sh"
-sudo -E env HOME=/root bash /imagegeneration/toolsets/install-ms-repos.sh
+sudo env DEBIAN_FRONTEND="${DEBIAN_FRONTEND:-}" NEEDRESTART_MODE="${NEEDRESTART_MODE:-}" NEEDRESTART_SUSPEND="${NEEDRESTART_SUSPEND:-}" GH_API_TOKEN="${GH_API_TOKEN:-}" GH_API_MIN_REMAINING="${GH_API_MIN_REMAINING:-}" GH_API_WAIT_BUFFER_SECONDS="${GH_API_WAIT_BUFFER_SECONDS:-}" SSH_USERNAME="${SSH_USERNAME:-}" HELPER_SCRIPTS="${HELPER_SCRIPTS:-}" HOME=/root bash /imagegeneration/toolsets/install-ms-repos.sh
 echo "==> Running configure-apt-sources.sh"
-sudo -E env HOME=/root bash /imagegeneration/toolsets/configure-apt-sources.sh
+sudo env DEBIAN_FRONTEND="${DEBIAN_FRONTEND:-}" NEEDRESTART_MODE="${NEEDRESTART_MODE:-}" NEEDRESTART_SUSPEND="${NEEDRESTART_SUSPEND:-}" GH_API_TOKEN="${GH_API_TOKEN:-}" GH_API_MIN_REMAINING="${GH_API_MIN_REMAINING:-}" GH_API_WAIT_BUFFER_SECONDS="${GH_API_WAIT_BUFFER_SECONDS:-}" SSH_USERNAME="${SSH_USERNAME:-}" HELPER_SCRIPTS="${HELPER_SCRIPTS:-}" HOME=/root bash /imagegeneration/toolsets/configure-apt-sources.sh
 echo "==> Running configure-apt.sh"
-sudo -E env HOME=/root bash /imagegeneration/toolsets/configure-apt.sh
+sudo env DEBIAN_FRONTEND="${DEBIAN_FRONTEND:-}" NEEDRESTART_MODE="${NEEDRESTART_MODE:-}" NEEDRESTART_SUSPEND="${NEEDRESTART_SUSPEND:-}" GH_API_TOKEN="${GH_API_TOKEN:-}" GH_API_MIN_REMAINING="${GH_API_MIN_REMAINING:-}" GH_API_WAIT_BUFFER_SECONDS="${GH_API_WAIT_BUFFER_SECONDS:-}" SSH_USERNAME="${SSH_USERNAME:-}" HELPER_SCRIPTS="${HELPER_SCRIPTS:-}" HOME=/root bash /imagegeneration/toolsets/configure-apt.sh
 echo "==> Done"
