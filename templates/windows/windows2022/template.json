@@ -4,8 +4,8 @@
   "name": "Windows Server 2022",
   "description": "Proxmox compatible Windows Server 2022 GitHub Actions runner image",
   "metadata": {
-    "build_timestamp": "2026-09-08T17:43:26Z",
-    "version": "2026.09.08.2",
+    "build_timestamp": "2026-09-09T01:47:09Z",
+    "version": "2026.09.09.1",
     "upstream_commit": "57fdccbc4a47d85e23cc79eaeb63cb8ae0e997b5"
   },
   "platform": {
