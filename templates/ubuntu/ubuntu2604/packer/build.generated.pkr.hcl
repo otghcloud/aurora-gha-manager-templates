@@ -348,6 +348,20 @@ build {
   }
 
   provisioner "shell-local" {
+    inline = ["echo '[image-builder:stage:install-swift] Install Swift'"]
+  }
+
+  provisioner "shell" {
+    environment_vars = [
+      "HELPER_SCRIPTS=${local.helper_script_folder}",
+      "INSTALLER_SCRIPT_FOLDER=${local.installer_script_folder}",
+      "DEBIAN_FRONTEND=noninteractive",
+    ]
+    execute_command = "sudo sh -c '{{ .Vars }} {{ .Path }}'"
+    script          = "${local.ubuntu_root}/scripts/build/install-swift.sh"
+  }
+
+  provisioner "shell-local" {
     inline = ["echo '[image-builder:stage:install-cmake] Install CMake'"]
   }
 
