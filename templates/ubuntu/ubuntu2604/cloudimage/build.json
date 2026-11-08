@@ -303,12 +303,21 @@
                     "script": "stage-scripts/install-clang.sh"
                 },
                 {
+                    "id": "install-swift",
+                    "name": "Install Swift",
+                    "marker": "[image-builder:stage:install-swift]",
+                    "description": "Install Swift",
+                    "required": true,
+                    "sequence": 28,
+                    "script": "stage-scripts/install-swift.sh"
+                },
+                {
                     "id": "install-cmake",
                     "name": "Install CMake",
                     "marker": "[image-builder:stage:install-cmake]",
                     "description": "Install CMake",
                     "required": true,
-                    "sequence": 28,
+                    "sequence": 29,
                     "script": "stage-scripts/install-cmake.sh"
                 },
                 {
@@ -317,7 +326,7 @@
                     "marker": "[image-builder:stage:install-codeql-bundle]",
                     "description": "Install CodeQL bundle",
                     "required": true,
-                    "sequence": 29,
+                    "sequence": 30,
                     "script": "stage-scripts/install-codeql-bundle.sh"
                 },
                 {
@@ -326,7 +335,7 @@
                     "marker": "[image-builder:stage:install-awf]",
                     "description": "Install AWF",
                     "required": true,
-                    "sequence": 30,
+                    "sequence": 31,
                     "script": "stage-scripts/install-awf.sh"
                 },
                 {
@@ -335,7 +344,7 @@
                     "marker": "[image-builder:stage:install-container-tools]",
                     "description": "Install container tools",
                     "required": true,
-                    "sequence": 31,
+                    "sequence": 32,
                     "script": "stage-scripts/install-container-tools.sh"
                 },
                 {
@@ -344,7 +353,7 @@
                     "marker": "[image-builder:stage:install-dotnetcore-sdk]",
                     "description": "Install .NET Core SDK",
                     "required": true,
-                    "sequence": 32,
+                    "sequence": 33,
                     "script": "stage-scripts/install-dotnetcore-sdk.sh"
                 },
                 {
@@ -353,7 +362,7 @@
                     "marker": "[image-builder:stage:install-microsoft-edge]",
                     "description": "Install Microsoft Edge",
                     "required": true,
-                    "sequence": 33,
+                    "sequence": 34,
                     "script": "stage-scripts/install-microsoft-edge.sh"
                 },
                 {
@@ -362,7 +371,7 @@
                     "marker": "[image-builder:stage:install-gcc-compilers]",
                     "description": "Install GCC compilers",
                     "required": true,
-                    "sequence": 34,
+                    "sequence": 35,
                     "script": "stage-scripts/install-gcc-compilers.sh"
                 },
                 {
@@ -371,7 +380,7 @@
                     "marker": "[image-builder:stage:install-firefox]",
                     "description": "Install Firefox",
                     "required": true,
-                    "sequence": 35,
+                    "sequence": 36,
                     "script": "stage-scripts/install-firefox.sh"
                 },
                 {
@@ -380,7 +389,7 @@
                     "marker": "[image-builder:stage:install-gfortran]",
                     "description": "Install GFortran",
                     "required": true,
-                    "sequence": 36,
+                    "sequence": 37,
                     "script": "stage-scripts/install-gfortran.sh"
                 },
                 {
@@ -389,7 +398,7 @@
                     "marker": "[image-builder:stage:install-git]",
                     "description": "Install Git",
                     "required": true,
-                    "sequence": 37,
+                    "sequence": 38,
                     "script": "stage-scripts/install-git.sh"
                 },
                 {
@@ -398,7 +407,7 @@
                     "marker": "[image-builder:stage:install-git-lfs]",
                     "description": "Install Git LFS",
                     "required": true,
-                    "sequence": 38,
+                    "sequence": 39,
                     "script": "stage-scripts/install-git-lfs.sh"
                 },
                 {
@@ -407,7 +416,7 @@
                     "marker": "[image-builder:stage:install-github-cli]",
                     "description": "Install GitHub CLI",
                     "required": true,
-                    "sequence": 39,
+                    "sequence": 40,
                     "script": "stage-scripts/install-github-cli.sh"
                 },
                 {
@@ -416,7 +425,7 @@
                     "marker": "[image-builder:stage:install-google-chrome]",
                     "description": "Install Google Chrome",
                     "required": true,
-                    "sequence": 40,
+                    "sequence": 41,
                     "script": "stage-scripts/install-google-chrome.sh"
                 },
                 {
@@ -425,7 +434,7 @@
                     "marker": "[image-builder:stage:install-google-cloud-cli]",
                     "description": "Install Google cloud CLI",
                     "required": true,
-                    "sequence": 41,
+                    "sequence": 42,
                     "script": "stage-scripts/install-google-cloud-cli.sh"
                 },
                 {
@@ -434,7 +443,7 @@
                     "marker": "[image-builder:stage:install-haskell]",
                     "description": "Install Haskell",
                     "required": true,
-                    "sequence": 42,
+                    "sequence": 43,
                     "script": "stage-scripts/install-haskell.sh"
                 },
                 {
@@ -443,7 +452,7 @@
                     "marker": "[image-builder:stage:install-java-tools]",
                     "description": "Install Java tools",
                     "required": true,
-                    "sequence": 43,
+                    "sequence": 44,
                     "script": "stage-scripts/install-java-tools.sh"
                 },
                 {
@@ -452,7 +461,7 @@
                     "marker": "[image-builder:stage:install-kubernetes-tools]",
                     "description": "Install Kubernetes tools",
                     "required": true,
-                    "sequence": 44,
+                    "sequence": 45,
                     "script": "stage-scripts/install-kubernetes-tools.sh"
                 },
                 {
@@ -461,7 +470,7 @@
                     "marker": "[image-builder:stage:install-kotlin]",
                     "description": "Install Kotlin",
                     "required": true,
-                    "sequence": 45,
+                    "sequence": 46,
                     "script": "stage-scripts/install-kotlin.sh"
                 },
                 {
@@ -470,7 +479,7 @@
                     "marker": "[image-builder:stage:install-mysql]",
                     "description": "Install MySQL",
                     "required": true,
-                    "sequence": 46,
+                    "sequence": 47,
                     "script": "stage-scripts/install-mysql.sh"
                 },
                 {
@@ -479,7 +488,7 @@
                     "marker": "[image-builder:stage:install-nginx]",
                     "description": "Install nginx",
                     "required": true,
-                    "sequence": 47,
+                    "sequence": 48,
                     "script": "stage-scripts/install-nginx.sh"
                 },
                 {
@@ -488,7 +497,7 @@
                     "marker": "[image-builder:stage:install-nvm]",
                     "description": "Install nvm",
                     "required": true,
-                    "sequence": 48,
+                    "sequence": 49,
                     "script": "stage-scripts/install-nvm.sh"
                 },
                 {
@@ -497,7 +506,7 @@
                     "marker": "[image-builder:stage:install-nodejs]",
                     "description": "Install Node.js",
                     "required": true,
-                    "sequence": 49,
+                    "sequence": 50,
                     "script": "stage-scripts/install-nodejs.sh"
                 },
                 {
@@ -506,7 +515,7 @@
                     "marker": "[image-builder:stage:install-copilot-cli]",
                     "description": "Install Copilot CLI",
                     "required": true,
-                    "sequence": 50,
+                    "sequence": 51,
                     "script": "stage-scripts/install-copilot-cli.sh"
                 },
                 {
@@ -515,7 +524,7 @@
                     "marker": "[image-builder:stage:install-bazel]",
                     "description": "Install Bazel",
                     "required": true,
-                    "sequence": 51,
+                    "sequence": 52,
                     "script": "stage-scripts/install-bazel.sh"
                 },
                 {
@@ -524,7 +533,7 @@
                     "marker": "[image-builder:stage:install-php]",
                     "description": "Install PHP",
                     "required": true,
-                    "sequence": 52,
+                    "sequence": 53,
                     "script": "stage-scripts/install-php.sh"
                 },
                 {
@@ -533,7 +542,7 @@
                     "marker": "[image-builder:stage:install-postgresql]",
                     "description": "Install PostgreSQL",
                     "required": true,
-                    "sequence": 53,
+                    "sequence": 54,
                     "script": "stage-scripts/install-postgresql.sh"
                 },
                 {
@@ -542,7 +551,7 @@
                     "marker": "[image-builder:stage:install-ruby]",
                     "description": "Install Ruby",
                     "required": true,
-                    "sequence": 54,
+                    "sequence": 55,
                     "script": "stage-scripts/install-ruby.sh"
                 },
                 {
@@ -551,7 +560,7 @@
                     "marker": "[image-builder:stage:install-rust]",
                     "description": "Install Rust",
                     "required": true,
-                    "sequence": 55,
+                    "sequence": 56,
                     "script": "stage-scripts/install-rust.sh"
                 },
                 {
@@ -560,7 +569,7 @@
                     "marker": "[image-builder:stage:install-selenium]",
                     "description": "Install Selenium",
                     "required": true,
-                    "sequence": 56,
+                    "sequence": 57,
                     "script": "stage-scripts/install-selenium.sh"
                 },
                 {
@@ -569,7 +578,7 @@
                     "marker": "[image-builder:stage:install-packer]",
                     "description": "Install Packer",
                     "required": true,
-                    "sequence": 57,
+                    "sequence": 58,
                     "script": "stage-scripts/install-packer.sh"
                 },
                 {
@@ -578,7 +587,7 @@
                     "marker": "[image-builder:stage:install-vcpkg]",
                     "description": "Install vcpkg",
                     "required": true,
-                    "sequence": 58,
+                    "sequence": 59,
                     "script": "stage-scripts/install-vcpkg.sh"
                 },
                 {
@@ -587,7 +596,7 @@
                     "marker": "[image-builder:stage:configure-dpkg]",
                     "description": "Configure dpkg",
                     "required": true,
-                    "sequence": 59,
+                    "sequence": 60,
                     "script": "stage-scripts/configure-dpkg.sh"
                 },
                 {
@@ -596,7 +605,7 @@
                     "marker": "[image-builder:stage:install-yq]",
                     "description": "Install yq",
                     "required": true,
-                    "sequence": 60,
+                    "sequence": 61,
                     "script": "stage-scripts/install-yq.sh"
                 },
                 {
@@ -605,7 +614,7 @@
                     "marker": "[image-builder:stage:install-android-sdk]",
                     "description": "Install Android SDK",
                     "required": true,
-                    "sequence": 61,
+                    "sequence": 62,
                     "script": "stage-scripts/install-android-sdk.sh"
                 },
                 {
@@ -614,7 +623,7 @@
                     "marker": "[image-builder:stage:install-pypy]",
                     "description": "Install PyPy",
                     "required": true,
-                    "sequence": 62,
+                    "sequence": 63,
                     "script": "stage-scripts/install-pypy.sh"
                 },
                 {
@@ -623,7 +632,7 @@
                     "marker": "[image-builder:stage:install-python]",
                     "description": "Install Python",
                     "required": true,
-                    "sequence": 63,
+                    "sequence": 64,
                     "script": "stage-scripts/install-python.sh"
                 },
                 {
@@ -632,7 +641,7 @@
                     "marker": "[image-builder:stage:install-zstd]",
                     "description": "Install zstd",
                     "required": true,
-                    "sequence": 64,
+                    "sequence": 65,
                     "script": "stage-scripts/install-zstd.sh"
                 },
                 {
@@ -641,7 +650,7 @@
                     "marker": "[image-builder:stage:install-ninja]",
                     "description": "Install Ninja",
                     "required": true,
-                    "sequence": 65,
+                    "sequence": 66,
                     "script": "stage-scripts/install-ninja.sh"
                 }
             ]
@@ -657,7 +666,7 @@
                     "marker": "[image-builder:stage:install-docker]",
                     "description": "Install Docker",
                     "required": true,
-                    "sequence": 66,
+                    "sequence": 67,
                     "script": "stage-scripts/install-docker.sh"
                 },
                 {
@@ -666,7 +675,7 @@
                     "marker": "[image-builder:stage:Install-Toolset]",
                     "description": "Install and configure the hosted toolcache",
                     "required": true,
-                    "sequence": 67,
+                    "sequence": 68,
                     "script": "stage-scripts/Install-Toolset.sh"
                 },
                 {
@@ -675,7 +684,7 @@
                     "marker": "[image-builder:stage:install-pipx-packages]",
                     "description": "Install pipx packages",
                     "required": true,
-                    "sequence": 68,
+                    "sequence": 69,
                     "script": "stage-scripts/install-pipx-packages.sh"
                 },
                 {
@@ -684,7 +693,7 @@
                     "marker": "[image-builder:stage:install-homebrew]",
                     "description": "Install Homebrew",
                     "required": true,
-                    "sequence": 69,
+                    "sequence": 70,
                     "script": "stage-scripts/install-homebrew.sh"
                 },
                 {
@@ -693,7 +702,7 @@
                     "marker": "[image-builder:stage:configure-snap]",
                     "description": "Configure snap",
                     "required": true,
-                    "sequence": 70,
+                    "sequence": 71,
                     "script": "stage-scripts/configure-snap.sh"
                 },
                 {
@@ -702,7 +711,7 @@
                     "marker": "[image-builder:stage:list-dpkg]",
                     "description": "Record the installed dpkg package list",
                     "required": true,
-                    "sequence": 71,
+                    "sequence": 72,
                     "script": "stage-scripts/list-dpkg.sh"
                 },
                 {
@@ -711,7 +720,7 @@
                     "marker": "[image-builder:stage:reboot-the-vm]",
                     "description": "Reboot the VM",
                     "required": true,
-                    "sequence": 72
+                    "sequence": 73
                 },
                 {
                     "id": "cleanup",
@@ -719,7 +728,7 @@
                     "marker": "[image-builder:stage:cleanup]",
                     "description": "Cleanup after the reboot",
                     "required": true,
-                    "sequence": 73,
+                    "sequence": 74,
                     "script": "stage-scripts/cleanup.sh"
                 },
                 {
@@ -728,7 +737,7 @@
                     "marker": "[image-builder:stage:configure-system]",
                     "description": "Configure the system",
                     "required": true,
-                    "sequence": 74,
+                    "sequence": 75,
                     "script": "stage-scripts/configure-system.sh"
                 },
                 {
@@ -737,7 +746,7 @@
                     "marker": "[image-builder:stage:post-build-validation]",
                     "description": "Post-build validation",
                     "required": true,
-                    "sequence": 75,
+                    "sequence": 76,
                     "script": "stage-scripts/post-build-validation.sh"
                 },
                 {
@@ -746,7 +755,7 @@
                     "marker": "[image-builder:stage:download-the-actions-runner]",
                     "description": "Download the GitHub Actions runner",
                     "required": true,
-                    "sequence": 76,
+                    "sequence": 77,
                     "script": "stage-scripts/download-the-actions-runner.sh"
                 }
             ]
@@ -762,7 +771,7 @@
                     "marker": "[image-builder:stage:cleanup-for-template-creation]",
                     "description": "Cleanup prior to Proxmox template creation",
                     "required": true,
-                    "sequence": 77,
+                    "sequence": 78,
                     "script": "stage-scripts/cleanup-for-template-creation.sh"
                 }
             ]
