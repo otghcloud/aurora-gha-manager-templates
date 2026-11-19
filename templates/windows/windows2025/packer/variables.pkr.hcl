@@ -3,11 +3,24 @@ variable "pmx_url" {
 }
 
 variable "pmx_token_id" {
-  type = string
+  type    = string
+  default = ""
 }
 
 variable "pmx_token_secret" {
   type      = string
+  default   = ""
+  sensitive = true
+}
+
+variable "pmx_username" {
+  type    = string
+  default = ""
+}
+
+variable "pmx_password" {
+  type      = string
+  default   = ""
   sensitive = true
 }
 
@@ -105,4 +118,9 @@ variable "winrm_username" {
 variable "install_password" {
   type      = string
   sensitive = true
+}
+
+variable "runner_directory" {
+  type    = string
+  default = "C:\\actions-runner"
 }

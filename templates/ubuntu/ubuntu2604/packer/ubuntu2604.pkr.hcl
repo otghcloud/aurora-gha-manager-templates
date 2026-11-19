@@ -9,8 +9,9 @@ packer {
 
 source "proxmox-iso" "ubuntu2604" {
   proxmox_url              = var.pmx_url
-  username                 = var.pmx_token_id
-  token                    = var.pmx_token_secret
+  username                 = var.pmx_username != "" ? var.pmx_username : var.pmx_token_id
+  token                    = var.pmx_token_secret != "" ? var.pmx_token_secret : null
+  password                 = var.pmx_password != "" ? var.pmx_password : null
   insecure_skip_tls_verify = true # set false once the Proxmox API has a trusted cert
 
   node                 = var.pmx_node

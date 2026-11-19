@@ -554,9 +554,9 @@ build {
   provisioner "shell" {
     inline = [
       "set -e",
-      "sudo mkdir -p /opt/actions-runner",
-      "sudo chown ${var.ssh_username}:${var.ssh_username} /opt/actions-runner",
-      "cd /opt/actions-runner",
+      "sudo mkdir -p \"${var.runner_directory}\"",
+      "sudo chown ${var.ssh_username}:${var.ssh_username} \"${var.runner_directory}\"",
+      "cd \"${var.runner_directory}\"",
       "RUNNER_VERSION=$(curl -fsSL https://api.github.com/repos/actions/runner/releases/latest | grep '\"tag_name\"' | head -n1 | sed -E 's/.*\"v([^\"]+)\".*/\\1/')",
       "curl -o actions-runner-linux-x64.tar.gz -L \"https://github.com/actions/runner/releases/download/v$${RUNNER_VERSION}/actions-runner-linux-x64-$${RUNNER_VERSION}.tar.gz\"",
       "tar xzf actions-runner-linux-x64.tar.gz && rm actions-runner-linux-x64.tar.gz",

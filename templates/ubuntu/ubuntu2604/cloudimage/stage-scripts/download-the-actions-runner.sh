@@ -14,9 +14,9 @@ for _ in $(seq 1 60); do
     fi
     sleep 1
 done
-sudo mkdir -p /opt/actions-runner
-sudo chown "$SSH_USERNAME":"$SSH_USERNAME" /opt/actions-runner
-cd /opt/actions-runner
+sudo mkdir -p "$RUNNER_DIRECTORY"
+sudo chown "$SSH_USERNAME":"$SSH_USERNAME" "$RUNNER_DIRECTORY"
+cd "$RUNNER_DIRECTORY"
 RUNNER_VERSION=$(curl -fsSL https://api.github.com/repos/actions/runner/releases/latest | grep '"tag_name"' | head -n1 | sed -E 's/.*"v([^"]+)".*/\1/')
 curl -o actions-runner-linux-x64.tar.gz -L "https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz"
 tar xzf actions-runner-linux-x64.tar.gz && rm actions-runner-linux-x64.tar.gz

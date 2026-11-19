@@ -105,9 +105,9 @@
             "type": "shell",
             "inline": [
               "set -e",
-              "sudo mkdir -p /opt/actions-runner",
-              "sudo chown ${var.ssh_username}:${var.ssh_username} /opt/actions-runner",
-              "cd /opt/actions-runner",
+              "sudo mkdir -p \"${var.runner_directory}\"",
+              "sudo chown ${var.ssh_username}:${var.ssh_username} \"${var.runner_directory}\"",
+              "cd \"${var.runner_directory}\"",
               "RUNNER_VERSION=$(curl -fsSL https://api.github.com/repos/actions/runner/releases/latest | grep '\"tag_name\"' | head -n1 | sed -E 's/.*\"v([^\"]+)\".*/\\1/')",
               "curl -o actions-runner-linux-x64.tar.gz -L \"https://github.com/actions/runner/releases/download/v$${RUNNER_VERSION}/actions-runner-linux-x64-$${RUNNER_VERSION}.tar.gz\"",
               "tar xzf actions-runner-linux-x64.tar.gz && rm actions-runner-linux-x64.tar.gz",
@@ -185,7 +185,7 @@
     "download-the-actions-runner": {
       "name": "Download the GitHub Actions runner",
       "match": {
-        "inline_contains": "sudo mkdir -p /opt/actions-runner"
+        "inline_contains": "sudo mkdir -p \"${var.runner_directory}\""
       }
     },
     "install-ssh-public-key": {
@@ -299,7 +299,8 @@
       "github_api_wait_buffer_seconds": "$GH_API_WAIT_BUFFER_SECONDS",
       "apt_snapshot_timestamp": "",
       "ssh_username": "\"$SSH_USERNAME\"",
-      "ssh_public_key": "$SSH_PUBLIC_KEY"
+      "ssh_public_key": "$SSH_PUBLIC_KEY",
+      "runner_directory": "$RUNNER_DIRECTORY"
     },
     "preamble_exports": {
       "SSH_USERNAME": "\"$(id -un)\""
