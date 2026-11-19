@@ -9,8 +9,9 @@ packer {
 
 source "proxmox-iso" "windows2022" {
   proxmox_url              = var.pmx_url
-  username                 = var.pmx_token_id
-  token                    = var.pmx_token_secret
+  username                 = var.pmx_username != "" ? var.pmx_username : var.pmx_token_id
+  token                    = var.pmx_token_secret != "" ? var.pmx_token_secret : null
+  password                 = var.pmx_password != "" ? var.pmx_password : null
   insecure_skip_tls_verify = true
 
   node                 = var.pmx_node
@@ -430,8 +431,8 @@ build {
   # Install the GitHub Actions runner binary but don't register it
   provisioner "powershell" {
     inline = [
-      "mkdir C:\\actions-runner",
-      "cd C:\\actions-runner",
+      "mkdir ${var.runner_directory}",
+      "cd ${var.runner_directory}",
       "$runnerVersion = ((Invoke-RestMethod -Uri 'https://api.github.com/repos/actions/runner/releases/latest').tag_name).TrimStart('v')",
       "Invoke-WebRequest -Uri \"https://github.com/actions/runner/releases/download/v$runnerVersion/actions-runner-win-x64-$runnerVersion.zip\" -OutFile actions-runner.zip",
       "Expand-Archive -Path actions-runner.zip -DestinationPath . -Force",
