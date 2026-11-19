@@ -16,9 +16,10 @@ i=1
 while [ \$i -le 30 ];do
   err=\$(mktemp)
   $real_tool "\$@" 2>\$err
+  status=\$?
 
   # no errors, break the loop and continue normal flow
-  test -f \$err || break
+  test -f \$err || exit \$status
   cat \$err >&2
 
   retry=false
@@ -51,13 +52,14 @@ while [ \$i -le 30 ];do
 
   rm \$err
   if [ \$retry = false ]; then
-    break
+    exit \$status
   fi
 
   sleep 5
   echo "...retry \$i"
   i=\$((i + 1))
 done
+exit \$status
 EOT
     chmod +x $prefix/$tool
 done
