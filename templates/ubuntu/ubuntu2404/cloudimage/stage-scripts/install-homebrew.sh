@@ -8,5 +8,5 @@ export HELPER_SCRIPTS=/imagegeneration/helpers
 export INSTALLER_SCRIPT_FOLDER=/imagegeneration/toolsets
 
 echo "==> Running install-homebrew.sh"
-bash /imagegeneration/toolsets/install-homebrew.sh
+bash -e /imagegeneration/toolsets/install-homebrew.sh
 echo "==> Done"

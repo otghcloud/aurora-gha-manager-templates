@@ -70,6 +70,7 @@ build {
     environment_vars = [
       "HELPER_SCRIPTS=${local.helper_script_folder}",
       "DEBIAN_FRONTEND=noninteractive",
+      "APT_SNAPSHOT_TIMESTAMP=${var.apt_snapshot_timestamp}",
     ]
     execute_command = "sudo sh -c '{{ .Vars }} {{ .Path }}'"
     scripts = [
@@ -139,20 +140,6 @@ build {
     ]
     execute_command = "sudo sh -c '{{ .Vars }} {{ .Path }}'"
     scripts         = ["${local.ubuntu_root}/scripts/build/configure-image-data.sh"]
-  }
-
-  provisioner "shell-local" {
-    inline = ["echo '[image-builder:stage:stub-waagent-conf] Stub waagent.conf for the upstream environment script'"]
-  }
-
-  provisioner "shell" {
-    execute_command = "sudo sh -c '{{ .Vars }} {{ .Path }}'"
-    inline = [
-      "touch /etc/waagent.conf",
-      "grep -q ResourceDisk.Format /etc/waagent.conf || echo 'ResourceDisk.Format=n' >> /etc/waagent.conf",
-      "grep -q ResourceDisk.EnableSwap /etc/waagent.conf || echo 'ResourceDisk.EnableSwap=n' >> /etc/waagent.conf",
-      "grep -q ResourceDisk.SwapSizeMB /etc/waagent.conf || echo 'ResourceDisk.SwapSizeMB=0' >> /etc/waagent.conf",
-    ]
   }
 
   provisioner "shell-local" {

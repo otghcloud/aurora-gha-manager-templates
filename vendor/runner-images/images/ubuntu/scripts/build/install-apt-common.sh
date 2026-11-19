@@ -11,6 +11,9 @@ common_packages=$(get_toolset_value .apt.common_packages[])
 cmd_packages=$(get_toolset_value .apt.cmd_packages[])
 
 for package in $common_packages $cmd_packages; do
+    if [[ "$package" == "netcat" ]]; then
+        package=netcat-openbsd
+    fi
     echo "Install $package"
     apt-get install --no-install-recommends $package
 done

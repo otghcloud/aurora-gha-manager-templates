@@ -106,6 +106,12 @@ variable "github_api_wait_buffer_seconds" {
   description = "Extra seconds to wait after GitHub's reset time before resuming requests"
 }
 
+variable "apt_snapshot_timestamp" {
+  type        = string
+  default     = ""
+  description = "Optional Ubuntu archive snapshot timestamp; empty uses the current repositories"
+}
+
 variable "runner_images_root" {
   type        = string
   default     = ""

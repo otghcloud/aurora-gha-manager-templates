@@ -85,23 +85,6 @@
         ]
       },
       {
-        "before": {
-          "script": "configure-environment.sh"
-        },
-        "provisioners": [
-          {
-            "type": "shell",
-            "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'",
-            "inline": [
-              "touch /etc/waagent.conf",
-              "grep -q ResourceDisk.Format /etc/waagent.conf || echo 'ResourceDisk.Format=n' >> /etc/waagent.conf",
-              "grep -q ResourceDisk.EnableSwap /etc/waagent.conf || echo 'ResourceDisk.EnableSwap=n' >> /etc/waagent.conf",
-              "grep -q ResourceDisk.SwapSizeMB /etc/waagent.conf || echo 'ResourceDisk.SwapSizeMB=0' >> /etc/waagent.conf"
-            ]
-          }
-        ]
-      },
-      {
         "after": {
           "script": "install-docker.sh"
         },
@@ -197,12 +180,6 @@
       "name": "Rename post-gen to post-generation",
       "match": {
         "inline_contains": "post-gen ${local.image_folder}/post-generation"
-      }
-    },
-    "stub-waagent-conf": {
-      "name": "Stub waagent.conf for the upstream environment script",
-      "match": {
-        "inline_contains": "touch /etc/waagent.conf"
       }
     },
     "install-docker": {
@@ -340,6 +317,7 @@
       "github_api_token": "$GH_API_TOKEN",
       "github_api_min_remaining": "$GH_API_MIN_REMAINING",
       "github_api_wait_buffer_seconds": "$GH_API_WAIT_BUFFER_SECONDS",
+      "apt_snapshot_timestamp": "",
       "ssh_username": "\"$SSH_USERNAME\"",
       "ssh_public_key": "$SSH_PUBLIC_KEY"
     },

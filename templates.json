@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-11-08T23:32:28Z",
-  "image_builder_version": "2026.11.08.1",
-  "runner_images_commit": "fad015e47059f40cf0786dcb4593384f6a0720d3",
+  "generated_at": "2026-11-19T01:33:05Z",
+  "image_builder_version": "2026.11.19.1",
+  "runner_images_commit": "fbb26cb01c3651ea3a0347e54bfa2ef83d740d49",
   "templates": [
     {
       "schema_version": 2,
@@ -10,9 +10,9 @@
       "name": "Ubuntu 24.04",
       "description": "Proxmox compatible Ubuntu 24.04 GitHub Actions runner image",
       "metadata": {
-        "build_timestamp": "2026-11-08T23:32:28Z",
-        "version": "2026.11.08.1",
-        "upstream_commit": "fad015e47059f40cf0786dcb4593384f6a0720d3"
+        "build_timestamp": "2026-11-19T01:33:04Z",
+        "version": "2026.11.19.1",
+        "upstream_commit": "fbb26cb01c3651ea3a0347e54bfa2ef83d740d49"
       },
       "platform": {
         "arch": "x64",
@@ -24,8 +24,7 @@
         "self-hosted",
         "linux",
         "x64",
-        "ubuntu-24.04",
-        "ubuntu-latest"
+        "ubuntu-24.04"
       ],
       "builders": {
         "cloudimage": {
@@ -112,9 +111,9 @@
       "name": "Ubuntu 26.04",
       "description": "Proxmox compatible Ubuntu 26.04 GitHub Actions runner image",
       "metadata": {
-        "build_timestamp": "2026-11-08T23:32:28Z",
-        "version": "2026.11.08.1",
-        "upstream_commit": "fad015e47059f40cf0786dcb4593384f6a0720d3"
+        "build_timestamp": "2026-11-19T01:33:04Z",
+        "version": "2026.11.19.1",
+        "upstream_commit": "fbb26cb01c3651ea3a0347e54bfa2ef83d740d49"
       },
       "platform": {
         "arch": "x64",
@@ -126,7 +125,8 @@
         "self-hosted",
         "linux",
         "x64",
-        "ubuntu-26.04"
+        "ubuntu-26.04",
+        "ubuntu-latest"
       ],
       "builders": {
         "cloudimage": {
@@ -213,9 +213,9 @@
       "name": "Ubuntu Slim",
       "description": "Proxmox compatible \"ubuntu-slim\" GitHub Actions runner image",
       "metadata": {
-        "build_timestamp": "2026-11-08T23:32:28Z",
-        "version": "2026.11.08.1",
-        "upstream_commit": "fad015e47059f40cf0786dcb4593384f6a0720d3"
+        "build_timestamp": "2026-11-19T01:33:04Z",
+        "version": "2026.11.19.1",
+        "upstream_commit": "fbb26cb01c3651ea3a0347e54bfa2ef83d740d49"
       },
       "platform": {
         "arch": "x64",
@@ -314,9 +314,9 @@
       "name": "Windows Server 2022",
       "description": "Proxmox compatible Windows Server 2022 GitHub Actions runner image",
       "metadata": {
-        "build_timestamp": "2026-11-08T23:32:28Z",
-        "version": "2026.11.08.1",
-        "upstream_commit": "fad015e47059f40cf0786dcb4593384f6a0720d3"
+        "build_timestamp": "2026-11-19T01:33:04Z",
+        "version": "2026.11.19.1",
+        "upstream_commit": "fbb26cb01c3651ea3a0347e54bfa2ef83d740d49"
       },
       "platform": {
         "arch": "x64",
@@ -383,9 +383,9 @@
       "name": "Windows Server 2025",
       "description": "Proxmox compatible Windows Server 2025 GitHub Actions runner image",
       "metadata": {
-        "build_timestamp": "2026-11-08T23:32:28Z",
-        "version": "2026.11.08.1",
-        "upstream_commit": "fad015e47059f40cf0786dcb4593384f6a0720d3"
+        "build_timestamp": "2026-11-19T01:33:04Z",
+        "version": "2026.11.19.1",
+        "upstream_commit": "fbb26cb01c3651ea3a0347e54bfa2ef83d740d49"
       },
       "platform": {
         "arch": "x64",
@@ -459,7 +459,7 @@
       "windows"
     ],
     "aliases": {
-      "ubuntu-latest": "ubuntu-24.04"
+      "ubuntu-latest": "ubuntu-26.04"
     }
   }
 }
